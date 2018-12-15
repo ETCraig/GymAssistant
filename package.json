@@ -8,7 +8,7 @@
     "test": "node Server.js",
     "server": "nodemon Server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Ethan Craig",
   "license": "ISC",
