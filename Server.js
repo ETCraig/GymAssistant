@@ -7,7 +7,7 @@ const users = require('./Routes/API/User');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 const db = require('./Config/Keys').mongoURI;
@@ -20,8 +20,8 @@ app.use(passport.initialize());
 
 require('./Config/Passport')(passport);
 
-app.use('/api/goals', goals);
-app.use('/api/users', users);
+app.use('/api/Goals', goals);
+app.use('/api/Users', users);
 
 const Port = process.env.PORT || 4000;
 
