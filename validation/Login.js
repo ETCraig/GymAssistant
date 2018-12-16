@@ -18,6 +18,6 @@ module.exports = function validationLoginInput(data) {
     }
     return {
         errors,
-        isValid: isEmpty(errors);
+        isValid: isEmpty(errors)
     }
 }
