@@ -6,6 +6,7 @@ import {Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwt_decoded from 'jwt-decode';
 import {clearCurrentUser} from './actions/userActions';
+import NavBar from './Components/NavBar';
 import {Provider} from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
 import {setCurrentUser, logoutUser} from './actions/authctions';
@@ -30,6 +31,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <NavBar />
             <Container>
               
             </Container>
