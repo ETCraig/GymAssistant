@@ -25,7 +25,7 @@ class Register extends Component {
         }
     }
     componentWillReceiveProps(nextProps) {
-        if(nextProps) {
+        if(nextProps.errors) {
             let {errors} = nextProps;
             this.setState({errors});
         }
@@ -49,35 +49,37 @@ class Register extends Component {
         return(
             <div>
                 <h1>Create Your New Account</h1>
-                <input
-                name='name'
-                type='name'
-                placeholder='Name'
-                value={this.state.name}
-                onChange={this.onChange} 
-                />
-                <input
-                name='email'
-                type='email'
-                placeholder='Email'
-                value={this.state.email}
-                onChange={this.onChange} 
-                />
-                <input
-                name='password'
-                type='password'
-                placeholder='Password'
-                value={this.state.password}
-                onChange={this.onChange} 
-                />
-                <input
-                name='password2'
-                type='password'
-                placeholder='Confirm Password'
-                value={this.state.password2}
-                onChange={this.onChange} 
-                />
-                <button>Create Account</button>
+                <form noValidate onSubmit={this.onSubmit}>
+                    <input
+                        name='name'
+                        type='name'
+                        placeholder='Name'
+                        value={this.state.name}
+                        onChange={this.onChange} 
+                    />
+                    <input
+                        name='email'
+                        type='email'
+                        placeholder='Email'
+                        value={this.state.email}
+                        onChange={this.onChange} 
+                    />
+                    <input
+                        name='password'
+                        type='password'
+                        placeholder='Password'
+                        value={this.state.password}
+                        onChange={this.onChange} 
+                    />
+                    <input
+                        name='password2'
+                        type='password'
+                        placeholder='Confirm Password'
+                        value={this.state.password2}
+                        onChange={this.onChange} 
+                    />
+                    <button type='submit'>Create Account</button>
+                </form>
             </div>
         );
     }

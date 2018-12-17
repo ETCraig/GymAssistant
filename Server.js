@@ -18,13 +18,11 @@ mongoose.connect(db)
 
 app.use(passport.initialize());
 
-app.use('/api/goals', goals);
-
 require('./Config/Passport')(passport);
 
-
+app.use('/api/goals', goals);
 app.use('/api/user', users);
 
-const Port = process.env.PORT || 4000;
+const Port = process.env.PORT || 5000;
 
 app.listen(Port, () => console.log(`Server is working on port ${Port}`))

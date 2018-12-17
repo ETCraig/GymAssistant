@@ -24,6 +24,10 @@ class Login extends Component {
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/Goals');
         }
+        if(nextProps.errors) {
+            const {errors} = nextProps;
+            this.setState({errors});
+        }
     }
     onChange(e) {
         this.setState({[e.target.name]: e.target.value});
@@ -41,18 +45,22 @@ class Login extends Component {
         const {errors} = this.state;
         return(
             <div>
-                <h1>Please Login</h1>
-                <input 
-                type='email'
-                placeholder='Email'
-                onChange={this.onChange} 
-                />
-                <input
-                type='password'
-                placeholder='Password'
-                onChange={this.onChange} 
-                />
-                <button>Login</button>
+                <form onSubmit={this.onSubmit}>
+                    <h1>Please Login</h1>
+                    <input 
+                    name='email'
+                    type='email'
+                    placeholder='Email'
+                    onChange={this.onChange} 
+                    />
+                    <input
+                    name='password'
+                    type='password'
+                    placeholder='Password'
+                    onChange={this.onChange} 
+                    />
+                    <button type='submit'>Login</button>
+                </form>
             </div>
         );
     }
@@ -60,7 +68,7 @@ class Login extends Component {
 
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    authL: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
 
