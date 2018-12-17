@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Styles/Styles.css';
 import {
     Collapse,
     Navbar,
@@ -20,7 +21,7 @@ class NavBar extends Component {
             <div>
                 <Navbar color='dark' dark expand='sm' className='mb-5'>
                     <Container>
-                        <NavbarBrand>Gym Assistant</NavbarBrand>
+                        <NavbarBrand id='NavBarBrand'>Gym Assistant</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}>
                             <Collapse isOpen={this.state.isOpen}>
                                 <Nav className='ml-auto' navbar>

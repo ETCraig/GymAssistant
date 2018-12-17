@@ -20,7 +20,7 @@ class Register extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     onChange(e) {
-        this.setState({[e.target.value]: e.target.value});
+        this.setState({[e.target.name]: e.target.value});
     }
     onSubmit(e) {
         let {name, email, password, password2} = this.state;
@@ -39,21 +39,29 @@ class Register extends Component {
             <div>
                 <h1>Create Your New Account</h1>
                 <input
+                name='name'
+                type='name'
                 placeholder='Name'
                 value={this.state.name}
                 onChange={this.onChange} 
                 />
                 <input
+                name='email'
+                type='email'
                 placeholder='Email'
                 value={this.state.email}
                 onChange={this.onChange} 
                 />
                 <input
+                name='password'
+                type='password'
                 placeholder='Password'
                 value={this.state.password}
                 onChange={this.onChange} 
                 />
                 <input
+                name='password2'
+                type='password'
                 placeholder='Confirm Password'
                 value={this.state.password2}
                 onChange={this.onChange} 
