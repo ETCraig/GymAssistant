@@ -10,11 +10,11 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    goals: {
-        type: String,
-        ref: 'goal',
-        required: true
-    },
+    // goals: {
+    //     type: String,
+    //     ref: 'goal',
+    //     required: true
+    // },
     date: {
         type: Date,
         default: Date.now

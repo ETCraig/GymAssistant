@@ -10,7 +10,7 @@ const validateLoginInput = require('../../validation/Login');
 
 const User = require('../../Models/User');
 
-router.post('/Register', (req, res) => {
+router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);
@@ -38,7 +38,7 @@ router.post('/Register', (req, res) => {
     });
 });
 
-router.post('/Login', (req, res) => {
+router.post('/login', (req, res) => {
     const {errors, isValid} = validateLoginInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);

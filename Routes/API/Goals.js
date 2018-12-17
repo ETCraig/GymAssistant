@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Goal = require('../../Models/Goal');
 
-router.get('/Goals', (req, res) => {
+router.get('/goals', (req, res) => {
     Goal.find()
         .sort({date: -1})
         .then(goals => res.json(items));

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {registerUser} from '../actions/authctions';
+import {registerUser} from '../actions/authActions';
 import {withRouter} from 'react-router-dom';
 
 class Register extends Component {
@@ -18,6 +18,17 @@ class Register extends Component {
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/Goals');
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps) {
+            let {errors} = nextProps;
+            this.setState({errors});
+        }
     }
     onChange(e) {
         this.setState({[e.target.name]: e.target.value});
@@ -72,4 +83,15 @@ class Register extends Component {
     }
 }
 
-export default Register;
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
+
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));

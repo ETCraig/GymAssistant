@@ -4,12 +4,12 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import jwt_decoded from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import {clearCurrentUser} from './actions/userActions';
 import {Provider} from 'react-redux';
 import SecureRoute from './resources/SecureRoute';
 import setAuthToken from './utils/setAuthToken';
-import {setCurrentUser, logoutUser} from './actions/authctions';
+import {setCurrentUser, logoutUser} from './actions/authActions';
 import store from './store';
 
 //Components
@@ -23,14 +23,14 @@ import WTcalc from './Components/wtCalculator';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
-  const decoded = jwt_decoded(localStorage.jwtToken);
+  const decoded = jwt_decode(localStorage.jwtToken);
   store.dispatch(setCurrentUser(decoded));
   const currentTime = Date.now() / 3000;
 
   if(decoded.exp < currentTime) {
     store.dispatch(logoutUser());
     store.dispatch(clearCurrentUser());
-    window.location.href = '/login'
+    window.location.href = '/Login'
   }
 }
 
@@ -41,16 +41,16 @@ class App extends Component {
         <Router>
           <div className="App">
             <NavBar />
-            <Container>
+            {/* <Container> */}
               <Route path='/' exact component={Landing} />
               <Route path='/Login' exact component={Login} />
               <Route path='/Register' exact component={Register} />
                 <Switch>
                   <SecureRoute path='/Goals' exact component={Goals} /> 
-                  <SecureRoute path='REP-Calculator' exact component={REPcalc} /> 
-                  <SecureRoute path='WT-Calculator' exact component={WTcalc} /> 
+                  <SecureRoute path='/REP-Calculator' exact component={REPcalc} /> 
+                  <SecureRoute path='/WT-Calculator' exact component={WTcalc} /> 
                 </Switch>
-            </Container>
+            {/* </Container> */}
           </div>
         </Router>
       </Provider>

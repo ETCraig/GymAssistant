@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import {PropTypes} from 'prop-types';
 
 class Landing extends Component {
-    // componentDidMount() {
-    //     if(this.props.auth.isAuthenticated) {
-    //         this.props.history.push('/Goals');
-    //     }
-    // }
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/Goals');
+        }
+    }
     render() {
         return(
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -20,14 +20,14 @@ class Landing extends Component {
     }
 }
 
-// Landing.propTypes = {
-//     auth: PropTypes.object.isRequired
-// }
+Landing.propTypes = {
+    auth: PropTypes.object.isRequired
+}
 
-// const mapStateToProps = state => {
-//     return {
-//         auth: state.auth
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
 
-export default Landing;
+export default connect(mapStateToProps)(Landing);

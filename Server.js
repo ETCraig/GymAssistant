@@ -18,10 +18,12 @@ mongoose.connect(db)
 
 app.use(passport.initialize());
 
+app.use('/api/goals', goals);
+
 require('./Config/Passport')(passport);
 
-app.use('/api/Goals', goals);
-app.use('/api/Users', users);
+
+app.use('/api/user', users);
 
 const Port = process.env.PORT || 4000;
 
