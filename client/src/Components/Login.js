@@ -42,7 +42,7 @@ class Login extends Component {
         this.props.loginUser(userData);
     }
     render() {
-        const {errors} = this.state;
+        // const {errors} = this.state;
         return(
             <div>
                 <form onSubmit={this.onSubmit}>

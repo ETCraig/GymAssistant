@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 import {getCurrentUser} from '../actions/userActions';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Goals extends Component {

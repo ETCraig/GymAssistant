@@ -6,15 +6,14 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
-    // goals: {
-    //     type: String,
-    //     ref: 'goal',
-    //     required: true
-    // },
     date: {
         type: Date,
         default: Date.now

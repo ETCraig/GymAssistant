@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import jwt_decode from 'jwt-decode';
 import {clearCurrentUser} from './actions/userActions';
 import {Provider} from 'react-redux';

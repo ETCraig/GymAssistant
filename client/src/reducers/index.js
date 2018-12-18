@@ -9,4 +9,4 @@ export default combineReducers({
     errors: errorReducer,
     goals: goalReducer,
     user: userReducer
-})
+});

@@ -11,11 +11,10 @@ const SecureRoute = ({component: Component, auth, ...rest}) => (
             auth.isAuthenticated === true ? (
                 <Component {...props} />
             ) : (
-                <Redirect to="/login" />
+                <Redirect to="/Login" />
             )
         }
     />
-
 );
 
 
@@ -25,6 +24,6 @@ SecureRoute.propTypes = {
 
 const mapStateToProps = state => ({
     auth: state.auth
-})
+});
 
 export default connect(mapStateToProps)(SecureRoute)
