@@ -10,7 +10,7 @@ class Goals extends Component {
         this.props.getCurrentUser();
     }
     render() {
-        const {user} = this.props.auth;
+        // const {user} = this.props.auth;
         
         return(
             <div>

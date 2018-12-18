@@ -5,13 +5,13 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../Config/Keys');
 const passport = require('passport');
 
-const validateRegisterInput = require('../../validation/Register');
-const validateLoginInput = require('../../validation/Login');
+const validationRegisterInput = require('../../validation/Register');
+const validationLoginInput = require('../../validation/Login');
 
 const User = require('../../Models/User');
 
 router.post('/register', (req, res) => {
-    const {errors, isValid} = validateRegisterInput(req.body);
+    const {errors, isValid} = validationRegisterInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);
     }
@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    const {errors, isValid} = validateLoginInput(req.body);
+    const {errors, isValid} = validationLoginInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);
     }

@@ -15,7 +15,7 @@ export const clearCurrentUser = () => {
 
 export const getCurrentUser = () => dispatch => {
     dispatch(setUserLoading());
-    axios.get('/api/User').then(res => {
+    axios.get('/api/auth').then(res => {
         dispatch({
             type: GET_USER,
             payload: res.data

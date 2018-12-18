@@ -41,7 +41,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <NavBar />
-            {/* <Container> */}
+            <Container>
               <Route path='/' exact component={Landing} />
               <Route path='/Login' exact component={Login} />
               <Route path='/Register' exact component={Register} />
@@ -50,7 +50,7 @@ class App extends Component {
                   <SecureRoute path='/REP-Calculator' exact component={REPcalc} /> 
                   <SecureRoute path='/WT-Calculator' exact component={WTcalc} /> 
                 </Switch>
-            {/* </Container> */}
+            </Container>
           </div>
         </Router>
       </Provider>
