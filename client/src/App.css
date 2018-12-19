@@ -9,11 +9,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -43,7 +38,16 @@
   width: 100%;
   height: 100%;
 }
-
+#row-auth {
+  display: flex;
+  flex-direction: column;
+}
+#row-auth input {
+  margin-top: 25px;
+  border-radius: 3px;
+  border-width: 1px;
+  height: 40px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

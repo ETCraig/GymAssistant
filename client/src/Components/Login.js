@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/authActions';
 import PropTypes from 'prop-types';
@@ -42,25 +43,30 @@ class Login extends Component {
         this.props.loginUser(userData);
     }
     render() {
-        // const {errors} = this.state;
+        const {errors} = this.state;
         return(
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <h1>Please Login</h1>
-                    <input 
-                    name='email'
-                    type='email'
-                    placeholder='Email'
-                    onChange={this.onChange} 
-                    />
-                    <input
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    onChange={this.onChange} 
-                    />
-                    <button type='submit'>Login</button>
-                </form>
+            <div className='login'>
+                <div className='container'>
+                    <div className='col-md-8 m-auto'>
+                    <h1 className='display-4 text-center'>Login</h1>
+                    <p className='lead text-center'>Login to your Gym Assistant account here.</p>
+                        <form noValidate onSubmit={this.onSubmit} id='row-auth'>
+                            <input 
+                                name='email'
+                                type='email'
+                                placeholder='Email'
+                                onChange={this.onChange} 
+                            />
+                            <input
+                                name='password'
+                                type='password'
+                                placeholder='Password'
+                                onChange={this.onChange} 
+                            />
+                            <button type='submit' className='btn btn-info btn-block mt-4'>Create Account</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

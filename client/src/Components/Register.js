@@ -47,39 +47,46 @@ class Register extends Component {
     render() {
         const {errors} = this.state;
         return(
-            <div>
-                <h1>Create Your New Account</h1>
-                <form noValidate onSubmit={this.onSubmit} action='create-profile.html'>
-                    <input
-                        name='name'
-                        type='name'
-                        placeholder='Name'
-                        value={this.state.name}
-                        onChange={this.onChange} 
-                    />
-                    <input
-                        name='email'
-                        type='email'
-                        placeholder='Email'
-                        value={this.state.email}
-                        onChange={this.onChange} 
-                    />
-                    <input
-                        name='password'
-                        type='password'
-                        placeholder='Password'
-                        value={this.state.password}
-                        onChange={this.onChange} 
-                    />
-                    <input
-                        name='password2'
-                        type='password'
-                        placeholder='Confirm Password'
-                        value={this.state.password2}
-                        onChange={this.onChange} 
-                    />
-                    <button type='submit'>Create Account</button>
-                </form>
+            <div className='register'>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-md-8 m-auto'>
+                        <h1 className='display-4 text-center'>Create Your New Account</h1>
+                        <p className='lead text-center'>Create your own Gym Assistant account here.</p>
+                            <form noValidate onSubmit={this.onSubmit} action='create-profile.html' id='row-auth'>
+                                <input
+                                    name='name'
+                                    type='name'
+                                    placeholder='Name'
+                                    value={this.state.name}
+                                    onChange={this.onChange} 
+                                />
+                                <input
+                                    name='email'
+                                    type='email'
+                                    placeholder='Email'
+                                    value={this.state.email}
+                                    onChange={this.onChange} 
+                                />
+                                <input
+                                    name='password'
+                                    type='password'
+                                    placeholder='Password'
+                                    value={this.state.password}
+                                    onChange={this.onChange} 
+                                />
+                                <input
+                                    name='password2'
+                                    type='password'
+                                    placeholder='Confirm Password'
+                                    value={this.state.password2}
+                                    onChange={this.onChange} 
+                                />
+                                <button type='submit' className='btn btn-info btn-block mt-4'>Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
