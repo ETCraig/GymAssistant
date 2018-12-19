@@ -9,34 +9,68 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
+import {connect} from 'react-redux';
+import {clearCurrentUser} from '../actions/userActions';
+import {Link} from 'react-router-dom';
+import {logoutUser} from '../actions/authActions';
+import PropTypes from 'prop-types';
 
 class NavBar extends Component {
     state = {isOpen: false}
     toggle = () => {
         this.setState({isOpen: !this.state.isOpen});
     }
+    onLogoutClick(e) {
+        e.preventDefault();
+        this.props.logoutUser();
+        this.props.logoutUser();
+    }
     render() {
+        const {isAuthenticated, user} = this.props.auth;
+
+        const userLinks = (
+            <Nav className='navbar-nav ml-auto' navbar>
+                <NavItem>
+                    <Link onClick={this.onLogoutClick.bind(this)} className='nav-link'>Logout</Link>
+                </NavItem>
+            </Nav>
+        );
+
+        const authLink = (
+            <Nav className='navbar-nav ml-auto' navbar>
+                <NavItem>
+                    <Link to='/Register' className='nav-link'>Sign Up</Link>
+                </NavItem>
+                <NavItem>
+                    <Link to='/Login' className='nav-link'>Login</Link>
+                </NavItem>
+            </Nav>
+        );
         return(
             <div>
                 <Navbar color='dark' dark expand='sm' className='mb-5'>
                     <Container>
                         <NavbarBrand id='NavBarBrand'>Gym Assistant</NavbarBrand>
-                        <NavbarToggler onClick={this.toggle}>
-                            <Collapse isOpen={this.state.isOpen}>
-                                <Nav className='ml-auto' navbar>
-                                    <NavItem>
-                                        <NavLink href='https://github.com/ETCraig' style={{cursor: 'pointer'}}>
-                                            GitHub
-                                        </NavLink>
-                                    </NavItem>
-                                </Nav>
-                            </Collapse>
-                        </NavbarToggler>
+                            {/* <Nav className='ml-auto' navbar> */}
+                                {isAuthenticated ? userLinks : authLink}
+                            {/* </Nav> */}
                     </Container>
                 </Navbar>
             </div>
-        )
+        );
     }
 }
 
-export default NavBar;
+NavBar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => {
+    return {
+        auth: state.auth,
+        errors: state.errors
+    }
+}
+
+export default connect(mapStateToProps, {logoutUser, clearCurrentUser})(NavBar);
