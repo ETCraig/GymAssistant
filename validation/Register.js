@@ -18,13 +18,13 @@ module.exports = function validateRegisterInput(data) {
     if(Validator.isEmpty(data.email)) {
         errors.email = 'Email is Required.';
     }
-    if(Validator.isEmail(data.email)) {
+    if(!Validator.isEmail(data.email)) {
         errors.email = 'Email is Invalid';
     }
     if(Validator.isEmpty(data.password)) {
         errors.password = 'Password is Required.';
     }
-    if(Validator.isLength(data.password, {min: 5, max: 20})) {
+    if(!Validator.isLength(data.password, {min: 5, max: 20})) {
         errors.password = 'Password must be 5 - 20 Characters.';
     }
     if(Validator.isEmpty(data.password2)) {

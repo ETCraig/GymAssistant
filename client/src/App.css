@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+#NavBarBrand {
+    color: #ff8c1a;
+    font-family: 'Exo 2', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -7,19 +14,34 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
+}
+
+.landing {
+  position: relative;
+  background-image: url('http://www.thescienceofgettingripped.com/wp-content/uploads/2013/03/weights.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 92.3vh;
+  margin-top: -47.5px;
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+.title {
+  color: #ff8c1a;
+  font-family: 'Exo 2', sans-serif;
+  margin-left: 15px;
+}
+.dark-overlay {
+  background-color: rgba(27, 24, 23, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes App-logo-spin {

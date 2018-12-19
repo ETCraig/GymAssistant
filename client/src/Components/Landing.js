@@ -11,11 +11,20 @@ class Landing extends Component {
     }
     render() {
         return(
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                <h1>Welcome to Gym Assistant!</h1>
-                <Link to='/Login' className='btn btn-sm btn-info mr-2'>Login</Link>
-                <Link to='/Register' className='btn btn-sm btn-light'>Register</Link>
-            </div>
+            <div className="landing">
+                <div className="dark-overlay landing-inner text-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12 text-center">
+                                <h1 className='display-3 mb-4' style={{display: 'flex', justifyContent: 'center', textJustify: 'auto'}}>Welcome to <span className='title'> Gym Assistant!</span></h1>
+                                <p className='lead'>Keep track of your personal fitness goals, and take advantage of two custom made calculators.</p>
+                                <Link to='/Login' className='btn btn-md btn-info mr-2' style={{margin: '20px'}}>Login</Link>
+                                <Link to='/Register' className='btn btn-md btn-light' style={{margin: '20px'}}>Register</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
         );
     }
 }

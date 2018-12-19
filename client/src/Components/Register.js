@@ -45,11 +45,11 @@ class Register extends Component {
         this.props.registerUser(newUser, this.props.history);
     }
     render() {
-        // const {errors} = this.state;
+        const {errors} = this.state;
         return(
             <div>
                 <h1>Create Your New Account</h1>
-                <form noValidate onSubmit={this.onSubmit}>
+                <form noValidate onSubmit={this.onSubmit} action='create-profile.html'>
                     <input
                         name='name'
                         type='name'
