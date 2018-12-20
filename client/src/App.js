@@ -13,7 +13,7 @@ import {setCurrentUser, logoutUser} from './actions/authActions';
 import store from './store';
 
 //Components
-import Goals from './Components/Goals'
+import Goals from './Components/GoalsModel';
 import Landing from './Components/Landing';
 import Login from './Components/Login';
 import NavBar from './Components/NavBar';
@@ -30,9 +30,10 @@ if(localStorage.jwtToken) {
   if(decoded.exp < currentTime) {
     store.dispatch(logoutUser());
     store.dispatch(clearCurrentUser());
-    window.location.href = '/Login'
+    this.props.history.push('/Login');
   }
 }
+
 
 class App extends Component {
   render() {

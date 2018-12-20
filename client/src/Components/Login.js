@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
 import {connect} from 'react-redux';
 import {loginUser} from '../actions/authActions';
 import PropTypes from 'prop-types';
@@ -43,7 +42,7 @@ class Login extends Component {
         this.props.loginUser(userData);
     }
     render() {
-        const {errors} = this.state;
+        // const {errors} = this.state;
         return(
             <div className='login'>
                 <div className='container'>
@@ -63,7 +62,7 @@ class Login extends Component {
                                 placeholder='Password'
                                 onChange={this.onChange} 
                             />
-                            <button type='submit' className='btn btn-info btn-block mt-4'>Create Account</button>
+                            <button type='submit' className='btn btn-info btn-block mt-4'>Login</button>
                         </form>
                     </div>
                 </div>

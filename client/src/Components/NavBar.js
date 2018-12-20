@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
@@ -26,12 +24,12 @@ class NavBar extends Component {
         this.props.logoutUser();
     }
     render() {
-        const {isAuthenticated, user} = this.props.auth;
+        const {isAuthenticated} = this.props.auth;
 
         const userLinks = (
             <Nav className='navbar-nav ml-auto' navbar>
                 <NavItem>
-                    <Link onClick={this.onLogoutClick.bind(this)} className='nav-link'>Logout</Link>
+                    <NavLink onClick={this.onLogoutClick.bind(this)} className='nav-link' style={{cursor: 'pointer'}}>Logout</NavLink>
                 </NavItem>
             </Nav>
         );
@@ -51,9 +49,7 @@ class NavBar extends Component {
                 <Navbar color='dark' dark expand='sm' className='mb-5'>
                     <Container>
                         <NavbarBrand id='NavBarBrand'>Gym Assistant</NavbarBrand>
-                            {/* <Nav className='ml-auto' navbar> */}
-                                {isAuthenticated ? userLinks : authLink}
-                            {/* </Nav> */}
+                            {isAuthenticated ? userLinks : authLink}
                     </Container>
                 </Navbar>
             </div>

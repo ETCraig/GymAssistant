@@ -3,20 +3,21 @@ const router = express.Router();
 
 const Goal = require('../../Models/Goal');
 
-router.get('/goals', (req, res) => {
+router.get('/', (req, res) => {
+    console.log('Hit Bck')
     Goal.find()
         .sort({date: -1})
-        .then(goals => res.json(items));
+        .then(goals => res.json(goals));
 });
 
-router.post('/Goals', (req, res) => {
+router.post('/', (req, res) => {
     const newGoal = new Goal({
         name: req.body.name
     });
     newGoal.save().then(goal => res.json(goal));
 });
 
-router.delete('/Goals/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     Goal.findById(req.params.id)
         .then(goal => goal.remove().then(() => res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const GoalSchema = new Schema({
-    Goal: {
+    name: {
         type: String,
         required: true
     },

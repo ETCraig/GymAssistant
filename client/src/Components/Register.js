@@ -45,7 +45,7 @@ class Register extends Component {
         this.props.registerUser(newUser, this.props.history);
     }
     render() {
-        const {errors} = this.state;
+        // const {errors} = this.state;
         return(
             <div className='register'>
                 <div className='container'>
