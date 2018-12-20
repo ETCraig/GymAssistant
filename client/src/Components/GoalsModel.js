@@ -15,6 +15,8 @@ import {getCurrentUser} from '../actions/userActions';
 import GoalList from './GoalList';
 import PropTypes from 'prop-types';
 
+import {Link} from 'react-router-dom';
+
 class GoalsModel extends Component {
     state = {
         modal: false,

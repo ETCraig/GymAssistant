@@ -7,6 +7,6 @@ import userReducer from './goalReducer';
 export default combineReducers({
     auth: authReducer,
     errors: errorReducer,
-    goals: goalReducer,
+    goal: goalReducer,
     user: userReducer
 });

@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 class GoalsList extends Component {
     componentDidMount() {
         this.props.getGoals();
+        console.log('Hit Mount.')
     }
     onDeleteClick = id => {
         this.props.deleteGoal(id);

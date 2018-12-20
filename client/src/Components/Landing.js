@@ -20,6 +20,7 @@ class Landing extends Component {
                                 <p className='lead'>Keep track of your personal fitness goals, and take advantage of two custom made calculators.</p>
                                 <Link to='/Login' className='btn btn-md btn-info mr-2' style={{margin: '20px'}}>Login</Link>
                                 <Link to='/Register' className='btn btn-md btn-light' style={{margin: '20px'}}>Register</Link>
+                                <Link to='/List'><button>List</button></Link>
                             </div>
                         </div>
                     </div>
