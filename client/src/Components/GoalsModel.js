@@ -30,9 +30,11 @@ class GoalsModel extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
     onSubmit = e => {
+        console.log('ghjkl;', this.props.auth.user.id)
         e.preventDefault();
         const newGoal = {
             name: this.state.name,
+            owner: this.props.auth.user.id
         }
         this.props.addGoal(newGoal);
         this.toggle();

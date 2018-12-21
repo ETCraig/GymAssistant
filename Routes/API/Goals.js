@@ -12,9 +12,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-   Goal.populate('owner', '_id')
     const newGoal = new Goal({
         name: req.body.name,
+        owner: req.body.owner
     });
     newGoal.save().then(goal => res.json(goal));
 });
