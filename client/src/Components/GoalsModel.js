@@ -20,6 +20,9 @@ class GoalsModel extends Component {
         modal: false,
         name: ''
     }
+    componentDidMount() {
+        this.props.getCurrentUser();
+    }
     toggle = () => {
         this.setState({modal: !this.state.modal});
     }
@@ -29,7 +32,7 @@ class GoalsModel extends Component {
     onSubmit = e => {
         e.preventDefault();
         const newGoal = {
-            name: this.state.name
+            name: this.state.name,
         }
         this.props.addGoal(newGoal);
         this.toggle();

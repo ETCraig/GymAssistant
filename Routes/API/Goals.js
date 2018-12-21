@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Goal = require('../../Models/Goal');
+const User = require('../../Models/User');
 
 router.get('/', (req, res) => {
     console.log('Hit Bck')
@@ -11,8 +12,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+   Goal.populate('owner', '_id')
     const newGoal = new Goal({
-        name: req.body.name
+        name: req.body.name,
     });
     newGoal.save().then(goal => res.json(goal));
 });
