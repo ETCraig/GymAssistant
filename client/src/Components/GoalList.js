@@ -35,10 +35,10 @@ class GoalsList extends Component {
                                         color='danger'
                                         size='sm'
                                         onClick={this.onDeleteClick.bind(this, _id)} 
-                                        >
-                                        &times;
-                                        </Button>
-                                        {name}
+                                    >
+                                    &times;
+                                    </Button>
+                                    {name}
                                 </ListGroupItem>
                             </CSSTransition>
                         ))}
