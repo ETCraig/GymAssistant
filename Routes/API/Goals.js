@@ -4,14 +4,14 @@ const router = express.Router();
 const Goal = require('../../Models/Goal');
 const User = require('../../Models/User');
 
-router.get('/', (req, res) => {
-    console.log('Hit Bck')
-    Goal.find()
+router.get('/:owner', (req, res) => {
+    Goal.find({owner: req.params.owner})
         .sort({date: -1})
         .then(goals => res.json(goals));
 });
 
 router.post('/', (req, res) => {
+    console.log(req.body.owner)
     const newGoal = new Goal({
         name: req.body.name,
         owner: req.body.owner

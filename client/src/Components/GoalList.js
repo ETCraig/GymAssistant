@@ -6,9 +6,17 @@ import {getGoals, deleteGoal} from '../actions/goalActions';
 import PropTypes from 'prop-types';
 
 class GoalsList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            owner: this.props.auth.user.id
+        }
+    }
     componentDidMount() {
-        this.props.getGoals();
-        console.log('Hit Mount.')
+        let owner = this.props.auth.user.id
+        this.props.getGoals(owner);
+        console.log('sdfghjkl', owner)
     }
     onDeleteClick = id => {
         this.props.deleteGoal(id);
@@ -47,6 +55,7 @@ GoalsList.propTypes = {
 }
 
 const mapStateToProps = state => ({
+    auth: state.auth,
     goal: state.goal
 });
 

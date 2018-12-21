@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {GET_GOALS, ADD_GOAL, DELETE_GOAL, GOALS_LOADING} from './Types';
 
-export const getGoals = () => dispatch => {
+export const getGoals = owner => dispatch => {
     console.log('Hit Action')
     dispatch(setGoalsLoading());
-    axios.get('/api/goals').then(res => dispatch({
+    axios.get(`/api/goals/${owner}`).then(res => dispatch({
         type: GET_GOALS,
         payload: res.data
     }));

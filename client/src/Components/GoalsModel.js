@@ -40,7 +40,8 @@ class GoalsModel extends Component {
         this.toggle();
     }
     render() {
-        // const {user} = this.props.auth;
+        const {user} = this.props.auth;
+        console.log('user', user)
         return(
             <div>
                 <Button
