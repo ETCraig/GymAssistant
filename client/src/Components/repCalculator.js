@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
-import {Button, Form, FormGroup, Input, } from 'reactstrap';
+import {Button, Form, FormGroup, Input, Table} from 'reactstrap';
 var repMax = require('rep-max');
+
 
 class repCalculator extends Component {
     constructor() {
@@ -41,11 +42,44 @@ class repCalculator extends Component {
             );
         } else {
             return (
-                <div>
-                    <h4>Your One Rep Max:{repMax.oneRepMax(myWeight, myRepetition)}</h4>
-                    <h4>Your Two Rep Max:{repMax.nRepMax(2, myWeight, myRepetition)}</h4>
-                    <h4>Your Three Rep Max:{repMax.nRepMax(3, myWeight, myRepetition)}</h4>
-                </div>
+                <Table striped>
+                    <thead>
+                        <tr>
+                            <th>Formula</th>
+                            <th>One Rep Max</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope='row'>Epley Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition)}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>Brzycki Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'brzycki'})}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>McGlothin Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'mcGlothin'})}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>Lombardi Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'lombardi'})}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>Mayhew Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'mayhew'})}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>O'Conner Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'oConner'})}lb</strong></td>
+                        </tr>
+                        <tr>
+                            <th scope='row'>Wathan Formula:</th>
+                            <td><strong>{repMax.oneRepMax(myWeight, myRepetition, {formula: 'wathan'})}lb</strong></td>
+                        </tr>
+                    </tbody>
+                </Table>
             );
         }
     }
