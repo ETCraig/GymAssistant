@@ -9,13 +9,14 @@ class repCalculator extends Component {
         super() 
             
         this.state = {
-            weight: 0,
-            repetition: 0,
+            weight: Number,
+            repetition: Number,
             conditions: false
         }
     }
     onChange = e => {
         this.setState({[e.target.name]: e.target.value});
+        this.setState({conditions: false});
     }
     onSubmit = e => {
         e.preventDefault();
@@ -37,12 +38,12 @@ class repCalculator extends Component {
         if(!this.state.conditions) {
             return (
                 <div>
-                    <h1>Please enter both the weight and rep ranges.</h1>
+                    <h1 className='lead text-center'>Please enter both the weight and rep ranges.</h1>
                 </div>
             );
         } else {
             return (
-                <Table striped>
+                <Table striped bordered>
                     <thead>
                         <tr>
                             <th>Formula</th>
@@ -85,8 +86,8 @@ class repCalculator extends Component {
     }
     render() {
         return(
-            <div>
-                <h1>1RM CALCULATOR</h1>
+            <div className='col-md-8 m-auto'>
+                <h1 className='display-4 text-center'>1RM CALCULATOR</h1>
                 <Form onSubmit={this.onSubmit}>
                     <FormGroup>
                         <Input 
@@ -96,6 +97,7 @@ class repCalculator extends Component {
                             value={this.state.weight}
                             onChange={this.onChange} 
                         />
+                        <br />
                         <Input 
                             name='repetition'
                             type='number'
@@ -103,7 +105,7 @@ class repCalculator extends Component {
                             value={this.state.repetition}
                             onChange={this.onChange} 
                         />
-                        <Button>Calculate Max</Button>
+                        <Button className='btn btn-info btn-block mt-4'>Calculate Max</Button>
                     </FormGroup>
                 </Form>
                 {this.renderFooter()}
