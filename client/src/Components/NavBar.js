@@ -29,7 +29,10 @@ class NavBar extends Component {
         const userLinks = (
             <Nav className='navbar-nav ml-auto' navbar>
                 <NavItem>
-                    <Link to='/BMI-Calculator' className='nav-link' style={{cursor: 'pointer'}}>Weight-Calc</Link>
+                    <Link to='/Goals' className='nav-link' style={{cursor: 'pointer'}}>Goals</Link>
+                </NavItem>
+                <NavItem>
+                    <Link to='/BMI-Calculator' className='nav-link' style={{cursor: 'pointer'}}>BMI-Calc</Link>
                 </NavItem>
                 <NavItem>
                     <Link to='/REP-Calculator' className='nav-link' style={{cursor: 'pointer'}}>REP-Calc</Link>
