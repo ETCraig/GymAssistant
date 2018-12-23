@@ -19,7 +19,7 @@ import Login from './Components/Login';
 import NavBar from './Components/NavBar';
 import Register from './Components/Register';
 import REPcalc from './Components/repCalculator';
-import WTcalc from './Components/wtCalculator';
+import BMIcalc from './Components/bmiCalculator';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -49,7 +49,7 @@ class App extends Component {
                 <Switch>
                   <SecureRoute path='/Goals' exact component={Goals} /> 
                   <SecureRoute path='/REP-Calculator' exact component={REPcalc} /> 
-                  <SecureRoute path='/WT-Calculator' exact component={WTcalc} /> 
+                  <SecureRoute path='/BMI-Calculator' exact component={BMIcalc} /> 
                 </Switch>
             </Container>
           </div>
