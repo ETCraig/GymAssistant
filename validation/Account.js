@@ -6,10 +6,10 @@ module.exports = function validateAccountInput(data) {
 
     data.handle = !isEmpty(data.handle) ? data.handle : '';
 
-    if(!Validator.isLength(data.handle, {min: 2, max: 40})) {
+    if (!Validator.isLength(data.handle, { min: 2, max: 40 })) {
         errors.handle = 'Handle needs to be 2 - 40 Characters.';
     }
-    if(Validator.isEmpty(data.handle)) {
+    if (Validator.isEmpty(data.handle)) {
         errors.status = 'Handle is required.';
     }
     return {

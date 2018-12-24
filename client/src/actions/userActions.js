@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_USER, USER_LOADING, CLEAR_CURRENT_USER} from './Types';
+import { GET_USER, USER_LOADING, CLEAR_CURRENT_USER } from './Types';
 
 export const setUserLoading = () => {
     return {

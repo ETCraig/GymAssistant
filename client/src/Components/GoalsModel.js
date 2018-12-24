@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {addGoal} from '../actions/goalActions';
+import React, { Component } from 'react';
+import { addGoal } from '../actions/goalActions';
 import {
     Button,
     Modal,
@@ -10,8 +10,8 @@ import {
     Label,
     Input
 } from 'reactstrap';
-import {connect} from 'react-redux';
-import {getCurrentUser} from '../actions/userActions';
+import { connect } from 'react-redux';
+import { getCurrentUser } from '../actions/userActions';
 import GoalList from './GoalList';
 import PropTypes from 'prop-types';
 
@@ -24,10 +24,10 @@ class GoalsModel extends Component {
         this.props.getCurrentUser();
     }
     toggle = () => {
-        this.setState({modal: !this.state.modal});
+        this.setState({ modal: !this.state.modal });
     }
     onChange = e => {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
     onSubmit = e => {
         console.log('ghjkl;', this.props.auth.user.id)
@@ -40,16 +40,16 @@ class GoalsModel extends Component {
         this.toggle();
     }
     render() {
-        const {user} = this.props.auth;
+        const { user } = this.props.auth;
         console.log('user', user)
-        return(
+        return (
             <div>
                 <Button
                     color='dark'
-                    style={{marginBottom: '2rem'}}
+                    style={{ marginBottom: '2rem' }}
                     onClick={this.toggle}
                 >
-                Add Goal
+                    Add Goal
                 </Button>
                 <Modal
                     isOpen={this.state.modal}
@@ -65,14 +65,14 @@ class GoalsModel extends Component {
                                     name='name'
                                     id='goal'
                                     placeholder='Add New Goal'
-                                    onChange={this.onChange} 
+                                    onChange={this.onChange}
                                 />
                                 <Button
                                     color='dark'
-                                    style={{marginTop: '2rem'}}
+                                    style={{ marginTop: '2rem' }}
                                     block
                                 >
-                                Add Goal
+                                    Add Goal
                                 </Button>
                             </FormGroup>
                         </Form>
@@ -94,4 +94,4 @@ const mapStateToProps = state => ({
     goal: state.goal
 });
 
-export default connect(mapStateToProps, {addGoal, getCurrentUser})(GoalsModel);
+export default connect(mapStateToProps, { addGoal, getCurrentUser })(GoalsModel);

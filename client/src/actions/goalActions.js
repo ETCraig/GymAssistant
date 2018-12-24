@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_GOALS, ADD_GOAL, DELETE_GOAL, GOALS_LOADING} from './Types';
+import { GET_GOALS, ADD_GOAL, DELETE_GOAL, GOALS_LOADING } from './Types';
 
 export const getGoals = owner => dispatch => {
     console.log('Hit Action')

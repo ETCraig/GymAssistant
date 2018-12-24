@@ -8,7 +8,7 @@ const users = require('./Routes/API/User');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const db = require('./Config/Keys').mongoURI;

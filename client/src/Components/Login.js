@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {loginUser} from '../actions/authActions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/authActions';
 import PropTypes from 'prop-types';
 
 class Login extends Component {
     constructor() {
         super();
 
-        this.state={
+        this.state = {
             email: '',
             password: '',
             errors: {}
@@ -16,24 +16,24 @@ class Login extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentDidMount() {
-        if(this.props.auth.isAuthenticated) {
+        if (this.props.auth.isAuthenticated) {
             this.props.history.push('/Goals');
         }
     }
     componentWillReceiveProps(nextProps) {
-        if(nextProps.auth.isAuthenticated) {
+        if (nextProps.auth.isAuthenticated) {
             this.props.history.push('/Goals');
         }
-        if(nextProps.errors) {
-            const {errors} = nextProps;
-            this.setState({errors});
+        if (nextProps.errors) {
+            const { errors } = nextProps;
+            this.setState({ errors });
         }
     }
     onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
     onSubmit(e) {
-        let {email, password} = this.state;
+        let { email, password } = this.state;
         e.preventDefault();
         const userData = {
             email,
@@ -43,24 +43,24 @@ class Login extends Component {
     }
     render() {
         // const {errors} = this.state;
-        return(
+        return (
             <div className='login'>
                 <div className='container'>
                     <div className='col-md-8 m-auto'>
-                    <h1 className='display-4 text-center'>Login</h1>
-                    <p className='lead text-center'>Login to your Gym Assistant account here.</p>
+                        <h1 className='display-4 text-center'>Login</h1>
+                        <p className='lead text-center'>Login to your Gym Assistant account here.</p>
                         <form noValidate onSubmit={this.onSubmit} id='row-auth'>
-                            <input 
+                            <input
                                 name='email'
                                 type='email'
                                 placeholder='Email'
-                                onChange={this.onChange} 
+                                onChange={this.onChange}
                             />
                             <input
                                 name='password'
                                 type='password'
                                 placeholder='Password'
-                                onChange={this.onChange} 
+                                onChange={this.onChange}
                             />
                             <button type='submit' className='btn btn-info btn-block mt-4'>Login</button>
                         </form>
@@ -84,4 +84,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {loginUser})(Login);
+export default connect(mapStateToProps, { loginUser })(Login);

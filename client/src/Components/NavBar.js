@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Navbar,
     NavbarBrand,
@@ -7,16 +7,16 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
-import {connect} from 'react-redux';
-import {clearCurrentUser} from '../actions/userActions';
-import {Link} from 'react-router-dom';
-import {logoutUser} from '../actions/authActions';
+import { connect } from 'react-redux';
+import { clearCurrentUser } from '../actions/userActions';
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../actions/authActions';
 import PropTypes from 'prop-types';
 
 class NavBar extends Component {
-    state = {isOpen: false}
+    state = { isOpen: false }
     toggle = () => {
-        this.setState({isOpen: !this.state.isOpen});
+        this.setState({ isOpen: !this.state.isOpen });
     }
     onLogoutClick(e) {
         e.preventDefault();
@@ -24,21 +24,21 @@ class NavBar extends Component {
         this.props.logoutUser();
     }
     render() {
-        const {isAuthenticated} = this.props.auth;
+        const { isAuthenticated } = this.props.auth;
 
         const userLinks = (
             <Nav className='navbar-nav ml-auto' navbar>
                 <NavItem>
-                    <Link to='/Goals' className='nav-link' style={{cursor: 'pointer'}}>Goals</Link>
+                    <Link to='/Goals' className='nav-link' style={{ cursor: 'pointer' }}>Goals</Link>
                 </NavItem>
                 <NavItem>
-                    <Link to='/BMI-Calculator' className='nav-link' style={{cursor: 'pointer'}}>BMI-Calc</Link>
+                    <Link to='/BMI-Calculator' className='nav-link' style={{ cursor: 'pointer' }}>BMI-Calc</Link>
                 </NavItem>
                 <NavItem>
-                    <Link to='/REP-Calculator' className='nav-link' style={{cursor: 'pointer'}}>REP-Calc</Link>
+                    <Link to='/REP-Calculator' className='nav-link' style={{ cursor: 'pointer' }}>REP-Calc</Link>
                 </NavItem>
                 <NavItem>
-                    <NavLink onClick={this.onLogoutClick.bind(this)} className='nav-link' style={{cursor: 'pointer'}}>Logout</NavLink>
+                    <NavLink onClick={this.onLogoutClick.bind(this)} className='nav-link' style={{ cursor: 'pointer' }}>Logout</NavLink>
                 </NavItem>
             </Nav>
         );
@@ -53,12 +53,12 @@ class NavBar extends Component {
                 </NavItem>
             </Nav>
         );
-        return(
+        return (
             <div>
                 <Navbar color='dark' dark expand='sm' className='mb-5'>
                     <Container>
                         <NavbarBrand id='NavBarBrand'>Gym Assistant</NavbarBrand>
-                            {isAuthenticated ? userLinks : authLink}
+                        {isAuthenticated ? userLinks : authLink}
                     </Container>
                 </Navbar>
             </div>
@@ -78,4 +78,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {logoutUser, clearCurrentUser})(NavBar);
+export default connect(mapStateToProps, { logoutUser, clearCurrentUser })(NavBar);

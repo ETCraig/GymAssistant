@@ -11,16 +11,16 @@ const validateLoginInput = require('../../validation/Login');
 const User = require('../../Models/User');
 
 router.get('/test', (req, res) => {
-    res.json({message: 'Users works'})
+    res.json({ message: 'Users works' })
 })
 
 router.post('/register', (req, res) => {
-    const {errors, isValid} = validateRegisterInput(req.body);
-    if(!isValid) {
+    const { errors, isValid } = validateRegisterInput(req.body);
+    if (!isValid) {
         return res.status(400).json(errors);
     }
-    User.findOne({email: req.body.email}).then(user => {
-        if(user) {
+    User.findOne({ email: req.body.email }).then(user => {
+        if (user) {
             errors.email = 'Email already in use.'
             return res.status(400).json(errors);
         } else {
@@ -31,7 +31,7 @@ router.post('/register', (req, res) => {
             });
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if(err) throw err;
+                    if (err) throw err;
                     newUser.password = hash;
                     newUser.save()
                         .then(user => res.json(user))
@@ -43,20 +43,20 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    const {errors, isValid} = validateLoginInput(req.body);
-    if(!isValid) {
+    const { errors, isValid } = validateLoginInput(req.body);
+    if (!isValid) {
         return res.status(400).json(errors);
     }
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({email}).then(user => {
-        if(!user) {
+    User.findOne({ email }).then(user => {
+        if (!user) {
             errors.email = 'User does not exist.';
             return res.status(404).json(errors);
         }
         bcrypt.compare(password, user.password).then(isMatch => {
-            if(isMatch) {
+            if (isMatch) {
                 const payload = {
                     id: user.id,
                     name: user.name,
@@ -64,9 +64,9 @@ router.post('/login', (req, res) => {
                 jwt.sign(
                     payload,
                     keys.secretOrKey,
-                    {expiresIn: 100},
+                    { expiresIn: 100 },
                     (err, token) => {
-                        res.json({success: true, token: 'Bearer' + token});
+                        res.json({ success: true, token: 'Bearer' + token });
                     }
                 );
             } else {
@@ -77,8 +77,8 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-    res.json({id: req.user.id, name: req.user.name, email: req.user.email});
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json({ id: req.user.id, name: req.user.name, email: req.user.email });
 });
 
 module.exports = router;

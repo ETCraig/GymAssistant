@@ -1,4 +1,4 @@
-import {GET_USER, USER_LOADING, CLEAR_CURRENT_USER} from '../actions/Types';
+import { GET_USER, USER_LOADING, CLEAR_CURRENT_USER } from '../actions/Types';
 
 const initialState = {
     user: null,
@@ -6,8 +6,8 @@ const initialState = {
     loading: false
 }
 
-export default function(state = initialState, action) {
-    switch(action.type) {
+export default function (state = initialState, action) {
+    switch (action.type) {
         case USER_LOADING:
             return {
                 ...state,
@@ -24,7 +24,7 @@ export default function(state = initialState, action) {
                 ...state,
                 user: null
             }
-        default: 
+        default:
             return state;
     }
 }

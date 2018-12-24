@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {registerUser} from '../actions/authActions';
-import {withRouter} from 'react-router-dom';
+import { registerUser } from '../actions/authActions';
+import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
     constructor() {
@@ -20,21 +20,21 @@ class Register extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentDidMount() {
-        if(this.props.auth.isAuthenticated) {
+        if (this.props.auth.isAuthenticated) {
             this.props.history.push('/Goals');
         }
     }
     componentWillReceiveProps(nextProps) {
-        if(nextProps.errors) {
-            let {errors} = nextProps;
-            this.setState({errors});
+        if (nextProps.errors) {
+            let { errors } = nextProps;
+            this.setState({ errors });
         }
     }
     onChange(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({ [e.target.name]: e.target.value });
     }
     onSubmit(e) {
-        let {name, email, password, password2} = this.state;
+        let { name, email, password, password2 } = this.state;
         e.preventDefault();
         const newUser = {
             name,
@@ -46,41 +46,41 @@ class Register extends Component {
     }
     render() {
         // const {errors} = this.state;
-        return(
+        return (
             <div className='register'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-8 m-auto'>
-                        <h1 className='display-4 text-center'>Create Your New Account</h1>
-                        <p className='lead text-center'>Create your own Gym Assistant account here.</p>
+                            <h1 className='display-4 text-center'>Create Your New Account</h1>
+                            <p className='lead text-center'>Create your own Gym Assistant account here.</p>
                             <form noValidate onSubmit={this.onSubmit} action='create-profile.html' id='row-auth'>
                                 <input
                                     name='name'
                                     type='name'
                                     placeholder='Name'
                                     value={this.state.name}
-                                    onChange={this.onChange} 
+                                    onChange={this.onChange}
                                 />
                                 <input
                                     name='email'
                                     type='email'
                                     placeholder='Email'
                                     value={this.state.email}
-                                    onChange={this.onChange} 
+                                    onChange={this.onChange}
                                 />
                                 <input
                                     name='password'
                                     type='password'
                                     placeholder='Password'
                                     value={this.state.password}
-                                    onChange={this.onChange} 
+                                    onChange={this.onChange}
                                 />
                                 <input
                                     name='password2'
                                     type='password'
                                     placeholder='Confirm Password'
                                     value={this.state.password2}
-                                    onChange={this.onChange} 
+                                    onChange={this.onChange}
                                 />
                                 <button type='submit' className='btn btn-info btn-block mt-4'>Create Account</button>
                             </form>
@@ -103,4 +103,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {registerUser})(withRouter(Register));
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));
